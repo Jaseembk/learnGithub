@@ -39,7 +39,7 @@ public class SeleniumPro {
       
        
        driver.findElement(By.name("reg_email__")).sendKeys("jaseem313@gmail.com");
-       driver.findElement(By.name("reg_email_confirmation__")).sendKeys("Jaseem313@gmail.com");
+   //    driver.findElement(By.name("reg_email_confirmation__")).sendKeys("Jaseem313@gmail.com");
        
       // driver.manage().timeouts().implicitlyWait(null)
        driver.findElement(By.name("reg_passwd__")).sendKeys("12345678");
@@ -57,15 +57,30 @@ public class SeleniumPro {
        Y.selectByValue("1995");
        
        WebElement button = driver.findElement(By.xpath("//label[text()='Male']"));
+       boolean isDisplay = driver.findElement(By.xpath("//label[text()='Male']")).isDisplayed();
+       boolean isEnable = driver.findElement(By.xpath("//label[text()='Male']")).isEnabled();
+
+       boolean isSelected = driver.findElement(By.xpath("//label[text()='Male']")).isSelected();
+ 
+       if (isDisplay)
+       {  System.out.println("button isDislpayed");
+       }else {
+    	   System.out.println("button Is not display");
+       }
        
-       button.isDisplayed();
-       System.out.println(button);
-     
-       button.isEnabled();
-       System.out.println(button);
-       button.isSelected();
-       System.out.println(button);
-                                
+       if (isEnable)
+       {  System.out.println("button is Enable");
+       }else {
+    	   System.out.println("button Is not Enable");
+       }
+       
+       
+       if (isSelected)
+       {  System.out.println("button Is Selected");
+       }else {
+    	   System.out.println("button Is not Selected");
+       }
+      
        String text =button.getText();
        button.click();
        
